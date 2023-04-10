@@ -1,0 +1,11 @@
+functions-framework==3.*
+google-api-core==2.11.0
+google-auth==2.17.2
+google-cloud-core==2.3.2
+google-cloud-storage==2.8.0
+google-crc32c==1.5.0
+google-resumable-media==2.4.1
+googleapis-common-protos==1.59.0
+Pillow==8.1.2
+requests==2.*
+urllib3==1.26.4
