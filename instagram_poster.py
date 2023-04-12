@@ -1,4 +1,4 @@
-"""Functions to post content to Facebook using Facebook API"""
+"""Functions for posting Instagram Content"""
 import os
 import requests
 import urllib.parse

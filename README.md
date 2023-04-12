@@ -13,26 +13,25 @@ This repository contains a function code, intended to be run on Google Cloud Fun
 You will need the following:
 
 - Google Cloud account
-- Cloud Storage Bucket with `igpt_public` with fine-grained access enabled
+- Cloud Storage Bucket with `igpt_public` name and fine-grained access enabled
 - Instagram Business Account
 - Instagram Access token and instagram account ID. You can use the following tutorials to get them:
   - Access Instagram API using https://superface.ai/blog/instagram-login
   - How to get Instagram API Token using Postman: https://www.youtube.com/watch?v=iN9Y7twSz7M&t=529
 - Open AI API Key
 
+Generator needs the following environment variables
 
-To run the generator you'll need to set the following environment variables:
-
-OPENAI_API_KEY  - Your Open AI API Key
-IG_ACCOUNT_ID   - Your Instagram Account ID
-IG_ACCESS_TOKEN - Your Instagram Access Token
-GOOGLE_APPLICATION_CREDENTIALS - Only for local run. You need to set relative path to your GCP Service Account credentials (You need to get these credentials for local run)
+- `OPENAI_API_KEY`  - Your Open AI API Key
+- `IG_ACCOUNT_ID`   - Your Instagram Account ID
+- `IG_ACCESS_TOKEN` - Your Instagram Access Token
+- `GOOGLE_APPLICATION_CREDENTIALS` - **Local run only**. You need to set relative path to your GCP Service Account credentials. Service account should have write & object admin access to `igpt_public` bucket
 
 
 ## High level cloud application overview
 
-- GCS bucket `igpt_public` stores jpg images of your instagram content
-- GCF function has all the code from this repository
+- GCS(Google Cloud Storage) bucket `igpt_public` stores jpg images of your instagram content
+- GCF(Google Cloud Functions) function has all the code from this repository
   - `generate_post` function used as an entry point for http-triggered cloud function
   - `generate_post_pubsub` used for Pub/Sub trigger 
 - GCF function generates content using OpenAI APIs. GCS bucket is needed to store content files converted to JPG. Instagram API require them to be accessible on the internet.
