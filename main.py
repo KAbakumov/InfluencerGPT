@@ -22,7 +22,8 @@ def generate_post(request):
 
 @functions_framework.cloud_event
 def generate_post_pubsub(cloud_event):
-    """Cloud function code for pubsub trigger
+    """
+    Cloud function code for pubsub trigger
     """   
     parsed_data = base64.b64decode(cloud_event.data["message"]["data"]) 
     print(f"Received pub/sub message: {parsed_data}")
@@ -31,7 +32,7 @@ def generate_post_pubsub(cloud_event):
     idea = event['idea']
     dry_run = event['dry_run']
 
-    if dry_run != False:
+    if dry_run == False:
         posts_generator.generatePostAndPublish(idea)
     else:
         posts_generator.generatePost(idea)

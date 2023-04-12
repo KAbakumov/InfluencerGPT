@@ -15,7 +15,7 @@ POST_IDEA_PROMPT="""
 DEFAULT_IDEA = """\
  a picture where cat doing things which humans usually do,\
  describe the color and breed of the cat and what it is doing.\
- Please don't include laptop or glasses
+ Please don't include laptop or glasses. Describe in a short sentence.
 """
 
 POST_DESCRIPTION_PROMPT="""

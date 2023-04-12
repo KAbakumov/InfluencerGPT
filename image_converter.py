@@ -6,9 +6,6 @@ from google.cloud import storage
 from io import BytesIO
 from PIL import Image
 
-# To access GCS locally, you need to set GOOGLE_APPLICATION_CREDENTIALS    
-
-
 def convertToJpg(url: str):
     """Downloads image from url and converts to jpg"""
     response = requests.get(url)
